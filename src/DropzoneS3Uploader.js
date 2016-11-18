@@ -39,6 +39,7 @@ export default class DropzoneS3Uploader extends React.Component {
     onError: PropTypes.func,
     onProgress: PropTypes.func,
     onFinish: PropTypes.func,
+    preprocess: PropTypes.func,
   }
 
   static defaultProps = {
@@ -108,6 +109,7 @@ export default class DropzoneS3Uploader extends React.Component {
       onProgress: this.onProgress,
       onFinishS3Put: this.onFinish,
       onError: this.onError,
+      preprocess: this.preprocess,
       uploadRequestHeaders: this.props.headers || {'x-amz-acl': 'public-read'},
       contentDisposition: 'auto',
       server: this.props.server || this.props.host || '',
